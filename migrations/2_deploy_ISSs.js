@@ -50,8 +50,8 @@ module.exports = async function(deployer,network,accounts) {
         await governanceToken.mint(accounts[0],BigInt(100000000) * BigInt(1e18))
         var legacyTokens = {};
         for (i=0; i<airdropEntries.length;i++) {
-            let adr = vestingEntries[i][0]
-            let amt = vestingEntries[i][1]
+            let adr = airdropEntries[i][0]
+            let amt = airdropEntries[i][1]
             await governanceToken.transfer(adr, BigInt(amt))
             console.log(adr,"-",amt)
         }
